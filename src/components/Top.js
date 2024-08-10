@@ -51,29 +51,4 @@ const Top = ({ chartData, coinId }) => {
   );
 };
 
-//   return (
-//     <div>
-//       {chartData.map((historicalData, index) => (
-//         <div key={index}>
-//           {"coinId"}:{historicalData.value}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-//   const handleChartDataReady = (chartData) => {
-//     console.log("Top.js:");
-//     console.log(
-//       "Top.js:",
-//       chartData.map((data) => data.value)
-//     );
-//   };
-
-//   return (
-//     <div>
-//       <MyChart onChartDataReady={handleChartDataReady} />
-//     </div>
-//   );
-
 export default Top;
