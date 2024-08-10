@@ -1,30 +1,45 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const Datepicker = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+const Datepicker = ({
+  startDate,
+  endDate,
+  onChangeStartDate,
+  onChangeEndDate,
+}) => {
+  const [startDateState, setStartDateState] = useState(startDate);
+  const [endDateState, setEndDateState] = useState(endDate);
+
+  const handleStartDateChange = (date) => {
+    setStartDateState(date);
+    onChangeStartDate(date);
+  };
+
+  const handleEndDateChange = (date) => {
+    setEndDateState(date);
+    onChangeEndDate(date);
+  };
+
   return (
     <>
       <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={startDateState}
+        onChange={handleStartDateChange}
         selectsStart
         startDate={startDate}
         endDate={endDate}
       />
       <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
+        selected={endDateState}
+        onChange={handleEndDateChange}
         selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
+        startDate={startDateState}
+        endDate={endDateState}
+        minDate={startDateState}
       />
     </>
   );
