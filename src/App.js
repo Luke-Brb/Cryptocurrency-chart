@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import CoinListButton from "./components/CoinListButton";
 import Datepicker from "./components/Datepicker";
-import Intervals from "./components/Intervals";
-import Charts from "./components/Charts";
 import MyChart from "./components/MyChart";
-import ChartData from "./components/ChartData";
-import Top from "./components/Top";
 
 const App = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [coinId, setCoinId] = useState("");
+  // const [coinId, setCoinId] = useState("");
 
   const handleCoinSelect = (coinId) => {
     setSelectedCoin(coinId);

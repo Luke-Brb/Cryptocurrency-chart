@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Form from "react-bootstrap/Form";
-import ChartData from "./ChartData";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
   <a
@@ -33,7 +31,7 @@ const CustomMenu = React.forwardRef(
         <Form.Control
           autoFocus
           className="mx-3 my-2 w-auto"
-          placeholder="Type to filter..."
+          placeholder="Name the coin..."
           onChange={(e) => setValue(e.target.value)}
           value={value}
         />
@@ -69,18 +67,16 @@ const CoinListButton = ({ onCoinSelect }) => {
   };
 
   return (
-    <div className="btn-group">
+    <div className="btn-group btn btn-dark">
       <Dropdown>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-          Cryptocurrency
+          Crypto coins
         </Dropdown.Toggle>
-
         <Dropdown.Menu as={CustomMenu}>
           {coins.map((coin) => (
             <Dropdown.Item
               key={coin.id}
               eventKey={coin.id}
-              // onSelect={handleSelect}
               onClick={() => handleSelect(coin.id)}
             >
               {coin.name}
