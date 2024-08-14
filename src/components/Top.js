@@ -6,8 +6,7 @@ const Top = ({ chartData, coinId }) => {
   const [topCoins, setTopCoins] = useState([]);
   const [topCoinsAscending, setTopCoinsAscending] = useState([]);
   const [topCoinsDescending, setTopCoinsDescending] = useState([]);
-  const sign = String.fromCodePoint("0x1f603");
-
+  
   useEffect(() => {
     calculateTop(chartData);
   }, [chartData]);
@@ -15,13 +14,10 @@ const Top = ({ chartData, coinId }) => {
   const calculateTop = (chartData) => {
     let largestIncrease = 0;
     let largestDecrease = 0;
-    console.log("Top.js - CHART LENGTH: ", chartData.length);
+    
     for (let i = 1; i < chartData.length; ++i) {
       const currentValue = chartData[i].value;
       const previousValue = chartData[i - 1].value;
-      // console.log("Top.js: AFISARE DATE ");
-      // console.log("currentValue:", currentValue);
-      // console.log("prevValue:", previousValue);
       const percentageChange =
         ((currentValue - previousValue) / previousValue) * 100;
 
