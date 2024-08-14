@@ -62,7 +62,6 @@ const CoinListButton = ({ onCoinSelect }) => {
   }, []);
 
   const handleSelect = (coinId) => {
-    console.log("HandleSelect -> coinId:", coinId);
     onCoinSelect(coinId);
   };
 
