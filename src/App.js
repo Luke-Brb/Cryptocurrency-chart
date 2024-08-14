@@ -7,11 +7,9 @@ const App = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  // const [coinId, setCoinId] = useState("");
 
   const handleCoinSelect = (coinId) => {
     setSelectedCoin(coinId);
-    console.log(" !!!Selected coin:", coinId);
   };
 
   const handleStartDate = (date) => {
@@ -21,10 +19,6 @@ const App = () => {
   const handleEndDate = (date) => {
     setEndDate(date);
   };
-
-  console.log("APP selectedCoin:", selectedCoin);
-  console.log("APP startDate:", startDate);
-  console.log("APP endDate:", endDate);
 
   return (
     <>
