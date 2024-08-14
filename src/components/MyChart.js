@@ -13,7 +13,6 @@ import Top from "./Top";
 
 function MyChart(props) {
   const [chartData, setChartData] = useState([]);
-  console.log("MyChart - chartData 1:", chartData);
 
   useEffect(() => {
     async function fetchDataAsync() {
@@ -23,17 +22,12 @@ function MyChart(props) {
           props.startDate,
           props.endDate
         );
-        console.log("MyChart - apiResponse.data:", apiResponse.data);
 
         const chartData = apiResponse.data.prices.map((price) => ({
           date: new Date(price[0]),
           value: price[1],
         }));
         setChartData(chartData);
-
-        console.log("MyChart - coinId:", props.coinId);
-        console.log("MyChart - startDate:", props.startDate);
-        console.log("MyChart - endDate:", props.endDate);
       } catch (error) {
         console.error(error);
       }
