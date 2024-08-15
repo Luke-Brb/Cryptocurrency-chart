@@ -22,7 +22,6 @@ function MyChart(props) {
           props.startDate,
           props.endDate
         );
-
         const chartData = apiResponse.data.prices.map((price) => ({
           date: new Date(price[0]),
           value: price[1],
