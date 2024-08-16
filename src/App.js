@@ -3,22 +3,22 @@ import CoinListButton from "./components/CoinListButton";
 import Datepicker from "./components/Datepicker";
 import MyChart from "./components/MyChart";
 
-const App = () => {
+function App() {
   const [selectedCoin, setSelectedCoin] = useState(null);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-  const handleCoinSelect = (coinId) => {
+  function handleCoinSelect(coinId) {
     setSelectedCoin(coinId);
-  };
+  }
 
-  const handleStartDate = (date) => {
+  function handleStartDate(date) {
     setStartDate(date);
-  };
+  }
 
-  const handleEndDate = (date) => {
+  function handleEndDate(date) {
     setEndDate(date);
-  };
+  }
 
   return (
     <>
@@ -55,6 +55,6 @@ const App = () => {
       </div>
     </>
   );
-};
+}
 
 export default App;
