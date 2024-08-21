@@ -47,7 +47,7 @@ const CustomMenu = React.forwardRef(
   }
 );
 
-const CoinListButton = ({ onCoinSelect }) => {
+function CoinListButton(props) {
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -61,9 +61,9 @@ const CoinListButton = ({ onCoinSelect }) => {
       });
   }, []);
 
-  const handleSelect = (coinId) => {
-    onCoinSelect(coinId);
-  };
+  function handleSelect(coinId) {
+    props.onCoinSelect(coinId);
+  }
 
   return (
     <div className="btn-group btn btn-dark">
@@ -85,6 +85,6 @@ const CoinListButton = ({ onCoinSelect }) => {
       </Dropdown>
     </div>
   );
-};
+}
 
 export default CoinListButton;

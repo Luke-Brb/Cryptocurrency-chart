@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-const Top = ({ chartData, coinId }) => {
+function Top({ chartData, coinId }) {
   const [largestIncrease, setLargestIncrease] = useState(0);
   const [largestDecrease, setLargestDecrease] = useState(0);
   const [topCoins, setTopCoins] = useState([]);
   const [topCoinsAscending, setTopCoinsAscending] = useState([]);
   const [topCoinsDescending, setTopCoinsDescending] = useState([]);
-  
+
   useEffect(() => {
     calculateTop(chartData);
   }, [chartData]);
 
-  const calculateTop = (chartData) => {
+  function calculateTop(chartData) {
     let largestIncrease = 0;
     let largestDecrease = 0;
-    
+
     for (let i = 1; i < chartData.length; ++i) {
       const currentValue = chartData[i].value;
       const previousValue = chartData[i - 1].value;
@@ -36,9 +36,9 @@ const Top = ({ chartData, coinId }) => {
       const topCoin = { coinId, largestIncrease, largestDecrease };
       setTopCoins((listedTopCoins) => [...listedTopCoins, topCoin]);
     }
-  };
+  }
 
-  const compare = () => {
+  function compare() {
     const sortAscending = [...topCoins].sort(
       (a, b) => b.largestIncrease - a.largestIncrease
     );
@@ -47,7 +47,7 @@ const Top = ({ chartData, coinId }) => {
       (a, b) => a.largestDecrease - b.largestDecrease
     );
     setTopCoinsDescending(sortDescending);
-  };
+  }
 
   useEffect(() => {
     compare();
@@ -83,6 +83,6 @@ const Top = ({ chartData, coinId }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Top;
