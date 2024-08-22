@@ -47,7 +47,7 @@ const CustomMenu = React.forwardRef(
   }
 );
 
-function CoinListButton(props) {
+function CoinListButton({onCoinSelect}) {
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function CoinListButton(props) {
   }, []);
 
   function handleSelect(coinId) {
-    props.onCoinSelect(coinId);
+    onCoinSelect(coinId);
   }
 
   return (
